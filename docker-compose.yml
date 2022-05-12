@@ -1,0 +1,26 @@
+version: '3.6'
+
+volumes:
+  accounts_data:
+
+services:
+      
+  radioauth:
+    image: wdmaster/radioauth
+    container_name: radioauth
+    volumes:
+        - accounts_data:/etc/radioauth/accounts
+    ports:
+      - "5556:5556/tcp"
+      - "1812:1812/udp"
+    environment:
+      - TZ=Europe/Kiev
+      - OAUTH_CLIENT_ID=radius_client
+      - OAUTH_CLIENT_SECRET=XXXX
+      - OAUTH_ISSUER=https://accounts.google.com
+      - OAUTH_CALLBACK_URL=http://your.server/auth/callback
+      - OAUTH_ACCOUNT_URL=https://myaccount.google.com/permissions
+      - ACCOUNT_STORE_PATH=/etc/radioauth/accounts
+      - RADIUS_SECRET=XXXX
+      - RADIUS_PORT=1812
+      - HTTP_PORT=5556

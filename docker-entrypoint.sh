@@ -25,4 +25,4 @@ exec "$@"
 
 set -m
 
-/app/cmd/radioauth/radioauth -config /etc/radioauth/config.json
+/etc/radioauth/radioauth -config /etc/radioauth/config.json

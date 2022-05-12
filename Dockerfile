@@ -3,7 +3,7 @@ FROM golang:1.18.2-alpine3.15 as builder
 COPY . /app
 RUN cd /app/cmd/radioauth/ && \
     go get -d -v && \
-    GOOS=linux go build -v -a -o radioauth
+    GOOS=linux go build -v -o radioauth
 
 # Stage 2
 FROM alpine:3.15
