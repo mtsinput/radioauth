@@ -19,6 +19,8 @@ cat <<EOF > $config_file
 }
 EOF
 
+mkdir -p $ACCOUNT_STORE_PATH
+
 exec "$@"
 
 set -m
